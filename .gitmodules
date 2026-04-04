@@ -1,0 +1,3 @@
+[submodule ".claude"]
+	path = .claude
+	url = git@github.com:pascalbe-dev/agent-config.git
