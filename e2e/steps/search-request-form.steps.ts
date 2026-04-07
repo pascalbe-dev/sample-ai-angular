@@ -1,9 +1,11 @@
 import { createBdd } from 'playwright-bdd';
 import { expect } from '@playwright/test';
+import { mockSearchRequests } from '../support/api-mock';
 
 const { Given, When, Then } = createBdd();
 
 Given('der Lead befindet sich auf der Gesuch-Seite der Company {string}', async ({ page }, companyId: string) => {
+  await mockSearchRequests(page, companyId, []);
   await page.goto(`/${companyId}/search-request/new`);
 });
 

@@ -1,7 +1,9 @@
 import { test, expect } from '@playwright/test';
+import { mockSearchRequests } from '../support/api-mock';
 
 test.describe('Search Request Form – Visual Regression', () => {
   test.beforeEach(async ({ page }) => {
+    await mockSearchRequests(page, 'abc', []);
     await page.goto('/abc/search-request/new');
   });
 

@@ -5,28 +5,28 @@ test.describe('Search Request Index einsehen und filtern', () => {
 
   test('Staff Member sieht nur Gesuche seiner Company', async ({ Given, When, Then, And, page }) => { 
     await Given('der Staff Member ist eingeloggt für Company "abc"', null, { page }); 
-    await And('es existieren Gesuche für Company "abc" und Company "xyz"'); 
+    await And('es existieren Gesuche für Company "abc" und Company "xyz"', null, { page }); 
     await When('der Staff Member die Gesuchskartei öffnet', null, { page }); 
     await Then('sieht er nur die Gesuche der Company "abc"', null, { page }); 
   });
 
   test('Staff Member sieht alle Felder eines Gesuchs', async ({ Given, When, Then, And, page }) => { 
     await Given('der Staff Member ist eingeloggt für Company "abc"', null, { page }); 
-    await And('es existiert ein Gesuch mit Stadt "Berlin", E-Mail "max@example.com" und Telefonnummer "01234"'); 
+    await And('es existiert ein Gesuch mit Stadt "Berlin", E-Mail "max@example.com" und Telefonnummer "01234"', null, { page }); 
     await When('der Staff Member die Gesuchskartei öffnet', null, { page }); 
     await Then('sieht er Stadt, E-Mail und Telefonnummer des Gesuchs', null, { page }); 
   });
 
   test('Staff Member filtert nach Stadt', async ({ Given, When, Then, And, page }) => { 
     await Given('der Staff Member ist eingeloggt für Company "abc"', null, { page }); 
-    await And('es existieren Gesuche für die Städte "Berlin" und "Hamburg"'); 
+    await And('es existieren Gesuche für die Städte "Berlin" und "Hamburg"', null, { page }); 
     await When('der Staff Member nach Stadt "Berlin" filtert', null, { page }); 
     await Then('sieht er nur Gesuche mit Stadt "Berlin"', null, { page }); 
   });
 
   test('Staff Member filtert nach mehreren Kriterien gleichzeitig', async ({ Given, When, Then, And, page }) => { 
     await Given('der Staff Member ist eingeloggt für Company "abc"', null, { page }); 
-    await And('es existieren mehrere Gesuche mit verschiedenen Kriterien'); 
+    await And('es existieren mehrere Gesuche mit verschiedenen Kriterien', null, { page }); 
     await When('der Staff Member nach Stadt "Berlin" und maximaler Preisvorstellung "1000" filtert', null, { page }); 
     await Then('sieht er nur Gesuche, die beide Kriterien erfüllen', null, { page }); 
   });
