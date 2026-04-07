@@ -1,13 +1,12 @@
 import { defineConfig, devices } from '@playwright/test';
 import { defineBddConfig } from 'playwright-bdd';
 
-const testDir = defineBddConfig({
+const bddTestDir = defineBddConfig({
   features: 'e2e/features/**/*.feature',
   steps: 'e2e/steps/**/*.ts',
 });
 
 export default defineConfig({
-  testDir,
   fullyParallel: false,
   reporter: 'line',
   use: {
@@ -20,7 +19,13 @@ export default defineConfig({
   },
   projects: [
     {
-      name: 'chromium',
+      name: 'bdd',
+      testDir: bddTestDir,
+      use: { ...devices['Desktop Chrome'] },
+    },
+    {
+      name: 'visual',
+      testDir: 'e2e/visual',
       use: { ...devices['Desktop Chrome'] },
     },
   ],
