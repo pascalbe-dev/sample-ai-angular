@@ -9,13 +9,7 @@ import { FilterType, TodoService } from './todo.service';
 @Component({
   selector: 'app-todo-list',
   standalone: true,
-  imports: [
-    DatePipe,
-    MatButtonToggleModule,
-    MatCheckboxModule,
-    MatChipsModule,
-    MatListModule,
-  ],
+  imports: [DatePipe, MatButtonToggleModule, MatCheckboxModule, MatChipsModule, MatListModule],
   template: `
     <div class="filter-bar">
       <mat-button-toggle-group
@@ -44,7 +38,7 @@ import { FilterType, TodoService } from './todo.service';
             </mat-checkbox>
             @if (task.dueDate) {
               <mat-chip-set class="due-chip">
-                <mat-chip>{{ task.dueDate | date:'mediumDate' }}</mat-chip>
+                <mat-chip>{{ task.dueDate | date: 'mediumDate' }}</mat-chip>
               </mat-chip-set>
             }
           </mat-list-item>
@@ -52,32 +46,34 @@ import { FilterType, TodoService } from './todo.service';
       </mat-list>
     }
   `,
-  styles: [`
-    .filter-bar {
-      display: flex;
-      justify-content: center;
-      padding: 8px 0 16px;
-    }
-    .empty-state {
-      text-align: center;
-      color: #888;
-      padding: 24px 0;
-    }
-    .task-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: auto !important;
-      padding: 8px 0 !important;
-    }
-    .due-chip {
-      margin-left: 8px;
-    }
-    :host ::ng-deep .completed-label .mdc-label {
-      text-decoration: line-through;
-      color: #aaa;
-    }
-  `],
+  styles: [
+    `
+      .filter-bar {
+        display: flex;
+        justify-content: center;
+        padding: 8px 0 16px;
+      }
+      .empty-state {
+        text-align: center;
+        color: #888;
+        padding: 24px 0;
+      }
+      .task-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: auto !important;
+        padding: 8px 0 !important;
+      }
+      .due-chip {
+        margin-left: 8px;
+      }
+      :host ::ng-deep .completed-label .mdc-label {
+        text-decoration: line-through;
+        color: #aaa;
+      }
+    `,
+  ],
 })
 export class TodoListComponent {
   readonly todoService = inject(TodoService);

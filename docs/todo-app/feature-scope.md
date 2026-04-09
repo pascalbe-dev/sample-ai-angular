@@ -49,11 +49,11 @@ Completed tasks are shown with a strikethrough label.
 
 A toggle button group at the top of the list lets users filter tasks by status:
 
-| Filter | Shows |
-|---|---|
-| All | Every task regardless of status |
-| Active | Only incomplete tasks |
-| Completed | Only completed tasks |
+| Filter    | Shows                           |
+| --------- | ------------------------------- |
+| All       | Every task regardless of status |
+| Active    | Only incomplete tasks           |
+| Completed | Only completed tasks            |
 
 **Screenshot: Active filter**
 ![Active filter](./06-filter-active.png)
@@ -85,13 +85,13 @@ The following features were intentionally excluded from the MVP:
 
 ## Architecture
 
-| File | Responsibility |
-|---|---|
-| `src/app/todo/task.model.ts` | `Task` interface (id, title, dueDate?, completed) |
-| `src/app/todo/todo.service.ts` | State management with Angular signals + localStorage |
-| `src/app/todo/todo-form.component.ts` | Add task form (reactive form, Material UI) |
-| `src/app/todo/todo-list.component.ts` | Task list with filter toggle and checkboxes |
-| `src/app/app.ts` | Root shell: toolbar + card layout |
+| File                                  | Responsibility                                       |
+| ------------------------------------- | ---------------------------------------------------- |
+| `src/app/todo/task.model.ts`          | `Task` interface (id, title, dueDate?, completed)    |
+| `src/app/todo/todo.service.ts`        | State management with Angular signals + localStorage |
+| `src/app/todo/todo-form.component.ts` | Add task form (reactive form, Material UI)           |
+| `src/app/todo/todo-list.component.ts` | Task list with filter toggle and checkboxes          |
+| `src/app/app.ts`                      | Root shell: toolbar + card layout                    |
 
 ### State Management
 

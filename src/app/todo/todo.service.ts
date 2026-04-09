@@ -52,9 +52,7 @@ export class TodoService {
 
   toggleTask(id: string): void {
     this._tasks.update((tasks) => {
-      const updated = tasks.map((t) =>
-        t.id === id ? { ...t, completed: !t.completed } : t,
-      );
+      const updated = tasks.map((t) => (t.id === id ? { ...t, completed: !t.completed } : t));
       saveToStorage(updated);
       return updated;
     });
