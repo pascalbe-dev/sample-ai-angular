@@ -8,7 +8,13 @@ import { TodoListComponent } from './todo/todo-list.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [MatCardModule, MatDividerModule, MatToolbarModule, TodoFormComponent, TodoListComponent],
+  imports: [
+    MatCardModule,
+    MatDividerModule,
+    MatToolbarModule,
+    TodoFormComponent,
+    TodoListComponent,
+  ],
   template: `
     <mat-toolbar color="primary">
       <span>My To-Do List</span>
@@ -24,16 +30,18 @@ import { TodoListComponent } from './todo/todo-list.component';
       </mat-card>
     </div>
   `,
-  styles: [`
-    .page-content {
-      display: flex;
-      justify-content: center;
-      padding: 32px 16px;
-    }
-    .todo-card {
-      width: 100%;
-      max-width: 680px;
-    }
-  `],
+  styles: [
+    `
+      .page-content {
+        display: flex;
+        justify-content: center;
+        padding: 32px 16px;
+      }
+      .todo-card {
+        width: 100%;
+        max-width: 680px;
+      }
+    `,
+  ],
 })
 export class App {}

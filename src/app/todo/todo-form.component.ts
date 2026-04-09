@@ -37,17 +37,23 @@ import { TodoService } from './todo.service';
       </button>
     </form>
   `,
-  styles: [`
-    .todo-form {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      padding: 16px 0;
-    }
-    .title-field { flex: 2 1 200px; }
-    .date-field { flex: 1 1 160px; }
-  `],
+  styles: [
+    `
+      .todo-form {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        padding: 16px 0;
+      }
+      .title-field {
+        flex: 2 1 200px;
+      }
+      .date-field {
+        flex: 1 1 160px;
+      }
+    `,
+  ],
 })
 export class TodoFormComponent {
   private readonly fb = inject(FormBuilder);
