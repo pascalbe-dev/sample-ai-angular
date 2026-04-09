@@ -1,18 +1,17 @@
-import eslint from '@eslint/js';
 import tseslint from 'typescript-eslint';
-import angular from '@angular-eslint/eslint-plugin';
-import angularTemplate from '@angular-eslint/eslint-plugin-template';
+import angularPlugin from '@angular-eslint/eslint-plugin';
+import angularTemplatePlugin from '@angular-eslint/eslint-plugin-template';
 import angularTemplateParser from '@angular-eslint/template-parser';
 
 export default tseslint.config(
   {
     files: ['**/*.ts'],
-    extends: [eslint.configs.recommended, ...tseslint.configs.recommended],
+    extends: [...tseslint.configs.recommended],
     plugins: {
-      '@angular-eslint': angular,
+      '@angular-eslint': angularPlugin,
     },
-    processor: angular.processors['inline-templates'],
     rules: {
+      ...angularPlugin.configs.recommended.rules,
       '@angular-eslint/component-selector': [
         'error',
         { type: 'element', prefix: 'app', style: 'kebab-case' },
@@ -26,13 +25,13 @@ export default tseslint.config(
   {
     files: ['**/*.html'],
     plugins: {
-      '@angular-eslint/template': angularTemplate,
+      '@angular-eslint/template': angularTemplatePlugin,
     },
     languageOptions: {
       parser: angularTemplateParser,
     },
     rules: {
-      ...angularTemplate.configs['recommended'].rules,
+      ...angularTemplatePlugin.configs.recommended.rules,
     },
   },
 );
